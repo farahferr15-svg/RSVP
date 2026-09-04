@@ -78,6 +78,178 @@ body.loaded .opening {
 }
 
 /* =========================================================
+   BOTANICAL FLORAL FRAME
+========================================================= */
+
+.botanical {
+  position: absolute;
+  width: 180px;
+  height: 300px;
+  z-index: 6;
+  pointer-events: none;
+  opacity: 0;
+
+  animation: botanicalIn .8s ease .35s forwards;
+}
+
+/* LEFT */
+
+.botanical-left {
+  left: 0;
+  top: 8%;
+}
+
+.botanical-left .branch-1 {
+  position: absolute;
+  width: 210px;
+  height: 1px;
+  background: rgba(238, 228, 216, .65);
+  top: 40px;
+  left: -15px;
+  transform: rotate(25deg);
+  transform-origin: left;
+}
+
+.botanical-left .branch-2 {
+  position: absolute;
+  width: 150px;
+  height: 1px;
+  background: rgba(238, 228, 216, .5);
+  top: 90px;
+  left: 5px;
+  transform: rotate(48deg);
+  transform-origin: left;
+}
+
+
+/* RIGHT */
+
+.botanical-right {
+  right: 0;
+  top: 8%;
+  transform: scaleX(-1);
+}
+
+
+/* LEAVES */
+
+.leaf {
+  position: absolute;
+  width: 25px;
+  height: 11px;
+  border: 1px solid rgba(238, 228, 216, .65);
+  border-radius: 100% 0 100% 0;
+  transform: rotate(-35deg);
+}
+
+.leaf-1 {
+  top: 48px;
+  left: 55px;
+}
+
+.leaf-2 {
+  top: 75px;
+  left: 92px;
+  transform: rotate(25deg);
+}
+
+.leaf-3 {
+  top: 105px;
+  left: 48px;
+  transform: rotate(-15deg);
+}
+
+.leaf-4 {
+  top: 135px;
+  left: 82px;
+  transform: rotate(35deg);
+}
+
+
+/* FLOWERS */
+
+.flower {
+  position: absolute;
+  color: #eee4d8;
+  font-family: var(--serif);
+  line-height: 1;
+}
+
+.flower-1 {
+  top: 25px;
+  left: 25px;
+  font-size: 25px;
+}
+
+.flower-2 {
+  top: 115px;
+  left: 120px;
+  font-size: 18px;
+}
+
+
+/* ANIMATION */
+
+@keyframes botanicalIn {
+
+  from {
+    opacity: 0;
+    transform: translateY(15px) scale(.9);
+  }
+
+  to {
+    opacity: .9;
+    transform: translateY(0) scale(1);
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE BOTANICAL
+========================================================= */
+
+@media (max-width: 768px) {
+
+  .botanical {
+    width: 130px;
+    height: 230px;
+  }
+
+  .botanical-left {
+    left: -10px;
+    top: 10%;
+  }
+
+  .botanical-right {
+    right: -10px;
+    top: 10%;
+  }
+
+  .botanical-left .branch-1 {
+    width: 150px;
+  }
+
+  .botanical-left .branch-2 {
+    width: 110px;
+  }
+
+  .leaf {
+    width: 20px;
+    height: 9px;
+  }
+
+  .flower-1 {
+    font-size: 20px;
+  }
+
+  .flower-2 {
+    font-size: 15px;
+  }
+
+}
+
+/* =========================================================
    CURTAIN
    PLAIN — NO STRIPES / NO GRADIENT
 ========================================================= */
@@ -417,7 +589,7 @@ body.loaded .opening {
 .hero {
   position: relative;
 
-  min-height: 100vh;
+  min-height: 80vh;
 
   display: flex;
 
@@ -773,19 +945,18 @@ body.loaded .opening {
 ========================================================= */
 
 .intro-section {
-  min-height: 85vh;
-
+  min-height: auto;
   display: flex;
-
   align-items: center;
   justify-content: center;
-
   text-align: center;
+  padding: 40px 20px;
+  padding-bottom: 45px;
 }
-
 
 .intro-content {
   max-width: 700px;
+  margin: 0;
 }
 
 
@@ -819,92 +990,19 @@ body.loaded .opening {
   line-height: 2;
 }
 
-
-/* =========================================================
-   STORY
-========================================================= */
-
-.story-section {
-  background: var(--cream-dark);
-}
-
-
-.story-layout {
-  display: grid;
-
-  grid-template-columns: 1fr 1fr;
-
-  gap: 12%;
-
-  align-items: center;
-}
-
-
-.story-heading h2 {
-  font-family: var(--serif);
-
-  font-size: clamp(60px, 8vw, 110px);
-
-  font-weight: 300;
-
-  line-height: .85;
-}
-
-
-.story-heading h2 em {
-  color: var(--burgundy);
-}
-
-
-.story-text {
-  max-width: 500px;
-}
-
-
-.story-text p {
-  color: var(--gray);
-
-  font-size: 13px;
-
-  line-height: 2;
-
-  margin-bottom: 30px;
-}
-
-
-.story-signature {
-  font-family: var(--serif);
-
-  font-size: 50px;
-
-  margin-top: 50px;
-}
-
-
-.story-signature span {
-  color: var(--burgundy);
-
-  font-size: 20px;
-}
-
-
 /* =========================================================
    DATE SECTION
 ========================================================= */
 
 .date-section {
   position: relative;
-
-  min-height: 100vh;
-
+  min-height: 45vh;
   display: flex;
-
   align-items: center;
   justify-content: center;
-
   text-align: center;
-
   overflow: hidden;
+  padding-bottom: 180px;
 }
 
 
@@ -1190,7 +1288,7 @@ body.loaded .opening {
 ========================================================= */
 
 .rsvp-section {
-  min-height: 80vh;
+  min-height: auto;
 
   display: flex;
 
@@ -1265,7 +1363,7 @@ body.loaded .opening {
 ========================================================= */
 
 .final-section {
-  min-height: 90vh;
+  min-height: auto;
 
   display: flex;
 
@@ -1660,7 +1758,7 @@ body.loaded .opening {
   /* INTRO */
 
   .intro-section {
-    min-height: 80vh;
+    min-height: 90vh;
   }
 
   .intro-content h2 {
@@ -1668,23 +1766,6 @@ body.loaded .opening {
   }
 
   .intro-content p {
-    font-size: 14px;
-    line-height: 2;
-  }
-
-
-  /* STORY */
-
-  .story-layout {
-    grid-template-columns: 1fr;
-    gap: 70px;
-  }
-
-  .story-heading h2 {
-    font-size: 65px;
-  }
-
-  .story-text p {
     font-size: 14px;
     line-height: 2;
   }
